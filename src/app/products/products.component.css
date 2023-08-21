@@ -1,0 +1,24 @@
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.chocolate-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 100px;
+  flex-wrap: wrap;
+  flex-basis: 33.333333%;
+  padding: 40px;
+}
+
+
+.flex-item {
+  display: inline-block;
+  width: 500px;
+  height: 600px;
+  padding: 40px;
+  border: solid 1px;
+  background-color: white;
+}

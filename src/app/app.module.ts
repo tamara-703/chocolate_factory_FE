@@ -1,6 +1,5 @@
 import { NgModule, NgZone } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +10,7 @@ import { ManufacturerComponent } from './manufacturer/manufacturer.component';
 import { AboutComponent } from './about/about.component';
 import { FetchApiService } from 'services/fetch-api.service';
 import { ImageSliderModule } from './imageSlider/imageSlider.module';
+import { PaginationModule } from 'pagination/pagination.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { ImageSliderModule } from './imageSlider/imageSlider.module';
     BrowserModule,
     AppRoutingModule,
     ImageSliderModule,
-    HttpClientModule
+    PaginationModule
   ],
   providers: [FetchApiService],
   bootstrap: [AppComponent]
