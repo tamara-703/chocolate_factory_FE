@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NgZone } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,7 +9,7 @@ import { ProductsComponent } from './products/products.component';
 import { CollectionsComponent } from './collections/collections.component';
 import { ManufacturerComponent } from './manufacturer/manufacturer.component';
 import { AboutComponent } from './about/about.component';
-import { FetchService } from './fetch.service';
+import { FetchApiService } from 'services/fetch-api.service';
 import { ImageSliderModule } from './imageSlider/imageSlider.module';
 
 @NgModule({
@@ -23,9 +24,10 @@ import { ImageSliderModule } from './imageSlider/imageSlider.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ImageSliderModule
+    ImageSliderModule,
+    HttpClientModule
   ],
-  providers: [FetchService],
+  providers: [FetchApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

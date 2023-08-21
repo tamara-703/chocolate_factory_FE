@@ -27,11 +27,15 @@ const routes: Routes = [
     path: 'about',
     component: AboutComponent
   },
-  // {
-  //   path: '',
-  //   redirectTo: '',
-  //   pathMatch: 'full'
-  // }, //redirect path
+  {
+    path: 'manufacturer',
+    component: ManufacturerComponent
+  },
+  {
+    path: '',
+    redirectTo: '',
+    pathMatch: 'full'
+  }, //redirect path
   // {
   //   path: '*',
 
