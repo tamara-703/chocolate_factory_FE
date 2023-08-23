@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import { Observable } from 'rxjs';
 import { FetchApiService } from 'services/fetch-api.service';
 
 @Component({
@@ -9,19 +10,27 @@ import { FetchApiService } from 'services/fetch-api.service';
 })
 export class ProductsComponent implements OnInit {
 
-  data: any[] = [];
+  data: any = [];
   currentPage: number = 1;
 
   constructor(private service: FetchApiService, private router: Router) {}
 
   //fetch api on page load
   ngOnInit(): void {
-    this.service.fetchApi().then(response => {
+
+    this.service.fetchApi().subscribe(response => {
       this.data = response;
-    }).catch(err => {
-      console.error(err);
+      console.log(this.data);
     })
+
   }
+
+
+
+
+
+
+
 
   changePage(page: number) :void {
 
@@ -39,6 +48,10 @@ export class ProductsComponent implements OnInit {
   addProduct() : void
   {
     //routes to page where form is
+  }
+
+  goToCreateForm() : void {
+    this.router.navigate(["/new"]);
   }
 
   //products will display a certain amount of products already in the database. It will have the option to allow users to add a product using a form

@@ -5,6 +5,7 @@ import { ManufacturerComponent } from './manufacturer/manufacturer.component';
 import { CollectionsComponent } from './collections/collections.component';
 import { AboutComponent } from './about/about.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CreateFormComponent } from './create-form/create-form.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
     redirectTo: '',
     pathMatch: 'full'
   }, //redirect path
+  {
+    path: 'new',
+    component: CreateFormComponent
+  }
   // {
   //   path: '*',
 

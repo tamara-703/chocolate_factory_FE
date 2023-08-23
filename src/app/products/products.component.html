@@ -1,18 +1,42 @@
 <h1>products works!</h1>
 
 
-<button type="button" class="btn active" data-bs-toggle="button" aria-pressed="true" style="background-color: beige; margin-top: 50px;" (click)="goToHomepage()">Back to homepage</button>
+<div style="display: flex; justify-content: center;">
+  <button type="button" class="btn active" data-bs-toggle="button" aria-pressed="true" style="background-color: beige; margin-top: 50px;" (click)="goToHomepage()">Back to homepage</button>
+  <button type="button" class="btn active" data-bs-toggle="button" aria-pressed="true" style="background-color: beige; margin-top: 50px;" (click)="goToCreateForm()">Add new product</button>
+</div>
 
-<div class="chocolate-container">
+<!-- <div class="chocolate-container">
 
-  <!-- <h1 class="flex-item" *ngFor="let item of data"><img src="{{item.url}}" alt="{{item.id}}"></h1> -->
-  <div class="flex-item" *ngFor="let item of data">
+  <h1 class="flex-item" *ngFor="let item of data"><img src="{{item.url}}" alt="{{item.id}}"></h1> -->
+  <!-- <div class="flex-item" *ngFor="let item of data">
     <h1>{{item.brand_name}}</h1>
     <h5>ID: {{item.id}}</h5>
     <h5>Manufacturer: {{item.manufacturer.manufacturer}}</h5>
     <h5>quantity in store: {{item.quantity}}</h5>
   </div>
 
+</div> -->
+
+<div class="chocolate-container">
+
+<div class="flex-item" *ngFor="let item of data">
+    <h1>Item</h1>
+    <h5>ID: {{item.id}}</h5>
+    <h5>Manufacturer: {{item.width}}</h5>
+    <h5>quantity in store: 1234</h5>
+
+    <div style="display: flex; justify-content: flex-end;">
+      <span><button type="button" class="entry-buttons btn active">Edit entry</button></span>
+      <span><button type="button" class="entry-buttons btn active">Delete entry</button></span>
+    </div>
+  </div>
+
+
+
+
 </div>
+
+
 
 <app-pagination [currentPage] = "currentPage" [limit] = "20" [total] = "40" (changePage)="changePage($event)" [data] = "data"> </app-pagination>
