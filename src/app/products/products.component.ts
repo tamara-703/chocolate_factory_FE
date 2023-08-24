@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import {Router} from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { FetchApiService } from 'services/fetch-api.service';
 
 @Component({
@@ -12,6 +12,8 @@ export class ProductsComponent implements OnInit {
 
   data: any = [];
   currentPage: number = 1;
+  subscription!: Subscription;
+  deletedId: number = 0;
 
   constructor(private service: FetchApiService, private router: Router) {}
 
@@ -23,20 +25,21 @@ export class ProductsComponent implements OnInit {
       console.log(this.data);
     })
 
+    // this.subscription = this.data;
+
   }
 
+  deleteEntry(id: number) {
+    this.deletedId = id;
+    this.service.deleteApi(this.deletedId).subscribe(response => {
+      console.log(response);
 
-
-
-
-
-
-
-  changePage(page: number) :void {
-
-    //assign the currentPage to the page clicked
-    this.currentPage = page;
-
+      if(response)
+      {
+        window.location.reload();
+        window.alert(`Entry ${response} deleted`);
+      }
+    })
   }
 
   //routing
@@ -45,17 +48,18 @@ export class ProductsComponent implements OnInit {
     this.router.navigate(["/"]);
   }
 
-  addProduct() : void
-  {
-    //routes to page where form is
-  }
-
   goToCreateForm() : void {
     this.router.navigate(["/new"]);
   }
 
-  //products will display a certain amount of products already in the database. It will have the option to allow users to add a product using a form
 
 
+  //implements an ngOnDestory method that will unsubscribe from the method calling the api so that we won't be calling the api when the application isn't running (this wil prevent memory leaks)
+  // ngOnDestroy(): void {
+
+  //   this.subscription.unsubscribe();
+  //   console.log("Application closed");
+
+  // }
 
 }

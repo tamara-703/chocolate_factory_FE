@@ -14,7 +14,7 @@
   </form> -->
 
 
-  <form (ngSubmit)="submitForm()">
+  <form >
     <div class="form-container">
         <label for="brand_name">Brand name</label>
       <input class="form-control form-control-lg" type="text" placeholder="enter brand name" aria-label=".form-control-lg example"  name="brand_name" [(ngModel)]="chocolate.brand_name">
@@ -26,10 +26,11 @@
       <input class="form-control form-control-sm" type="text" placeholder="enter manufacturer address" aria-label=".form-control-sm example" name="manufacturer-address" [(ngModel)]="chocolate.manufacturer.manufacturerAddress">
       <label for="capacity">Capacity In Warehouse</label>
       <input class="form-control form-control-sm" type="number" placeholder="enter capacity in warehouse" aria-label=".form-control-sm example" min="10" max="50000" name="capacity" [(ngModel)]="chocolate.manufacturer.capacity">
-      <input type="submit" class="btn active" style="width:200px; background-color: beige">
+      <input type="submit" class="btn active" style="width:200px; background-color: beige" (click)="submitForm()">
     </div>
     </form>
 
+    <!--check chocolate object? But it is defined with value by default, not sure if it will pass the false condition -->
     <div *ngIf="status">
       <h1>Chocolate Entry Created</h1>
       <button class="btn active" style="background-color: beige;" (click)="goToHomepage()">Go back to products</button>

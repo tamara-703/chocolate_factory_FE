@@ -40,11 +40,13 @@ const routes: Routes = [
   {
     path: 'new',
     component: CreateFormComponent
-  }
+  },
   // {
-  //   path: '*',
-
-  // } //TODO : create a page not found 404 page
+  //   path: 'edit/:id' //the edit component page
+  //   //put activated router in the constructo and then grab the id
+  //   //in the constructor --> const id = this.route.snapshot.paramMap.get('id')
+  // }
+  //TODO : create a 'page not found 404' page (path '**')
 ];
 
 @NgModule({

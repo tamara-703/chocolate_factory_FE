@@ -1,38 +1,24 @@
 import { Injectable, NgZone } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.development';
+import { Chocolate } from 'src/app/interfaces/chocolate';
 
 @Injectable({
   providedIn: 'root'
 })
+//NOTE: create two other service that would individually fetch the manufacturer and flavor api instead of having them here
 export class FetchApiService {
 
+  //abstract this string to a higher config file. Move this to a environment config file
   base_url: string = "http://localhost:8080" ?? "https://api.thecatapi.com/v1/images/search?limit=10";
-  status: boolean = false;
 
-  constructor(private httpService: HttpClient) {
-    // this.base_url = "http://localhost:8080"//base url: http:localhost:8080
-    //"https://api.thecatapi.com/v1/images/search?limit=10";
-    //then add paths using template literals
-  }
+  url: string = environment.base_url; //imported from environment, use this for later requests
 
-  // fetchApi(): Promise<any[]>
-  // {
-  //   return new Promise<any[]>((resolve, reject) => {
-  //     setTimeout(()=> {
-  //       const response = fetch(`${this.base_url}/chocolate/v1`).then(data => {
-  //         return data.json();
-  //       }).catch(err => {
-  //         console.error(err);
-  //       })
+  id: number = 0;
 
-  //       resolve(response);
+  constructor(private httpService: HttpClient) { }
 
-  //     }, 1000)
-  //   })
-  // }
-
-  //a better way to do this is to create an interface for my database.
   //GET
   fetchApi() : Observable<Object>{
     //GET
@@ -41,28 +27,32 @@ export class FetchApiService {
   }
 
   //POST
-  postApi(requestBody: Object) : boolean {
+  postApi(chocoBody: Chocolate) : Observable<Chocolate> {
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
+    //not sure if i want any headers. Check the headers next time a response comes in
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json'
+    // })
 
     console.log("Request body received");
-    console.log(requestBody);
-    console.log(this.status);
 
-    this.httpService.post(`${this.base_url}/chocolate/v1`, requestBody).subscribe ((data) =>
-    {
-      console.log("Request received");
-      console.log(data);
+    return this.httpService.post<Chocolate>(`${this.base_url}/chocolate/v1`, chocoBody);
 
-      this.status = true;
-    })
+  }
 
-    console.log("after");
-    console.log(this.status);
+  //PUT
 
-    return this.status;
+  //DELETE
+  deleteApi(id: number) : Observable<Chocolate>  {
+
+    this.id = id;
+    console.log("in delete");
+    console.log(this.id);
+
+    return this.httpService.delete<Chocolate>(`${this.base_url}/chocolate/v1/${this.id}`);
+
+
+
 
   }
 

@@ -31,6 +31,7 @@ export class CreateFormComponent {
 
   status: boolean = false;
 
+
   constructor(private service: FetchApiService, private router: Router) {}
 
 
@@ -46,13 +47,12 @@ export class CreateFormComponent {
 
     if(this.chocolate != null)
     {
-      this.status = this.service.postApi(this.chocolate);
+      this.service.postApi(this.chocolate).subscribe(data => {
+        this.status = true;
+      })
     }
 
-    if(this.status === true)
-    {
-      console.log("Success!");
-    }
+    
 
 
   }
