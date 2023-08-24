@@ -6,6 +6,7 @@ import { CollectionsComponent } from './collections/collections.component';
 import { AboutComponent } from './about/about.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateFormComponent } from './create-form/create-form.component';
+import { EditFormComponent } from './edit-form/edit-form.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
     path: 'new',
     component: CreateFormComponent
   },
+  {
+    path: 'edit/:id',
+    component: EditFormComponent
+  }
   // {
   //   path: 'edit/:id' //the edit component page
   //   //put activated router in the constructo and then grab the id

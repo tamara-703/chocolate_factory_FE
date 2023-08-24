@@ -26,6 +26,13 @@ export class FetchApiService {
     return this.httpService.get(`${this.base_url}/chocolate/v1`);
   }
 
+  //GET BY ID
+  fetchApiById(id: number) : Observable<Chocolate>
+  {
+    console.log("Getting ID from edit page: " + id);
+    return this.httpService.get<Chocolate>(`${this.base_url}/chocolate/v1/${id}`);
+  }
+
   //POST
   postApi(chocoBody: Chocolate) : Observable<Chocolate> {
 
@@ -41,6 +48,14 @@ export class FetchApiService {
   }
 
   //PUT
+  putApi(chocoBody: Chocolate, id: number) : Observable<Chocolate>
+  {
+
+    console.log("Request to edit sent!");
+
+    return this.httpService.put<Chocolate>(`${this.base_url}/chocolate/v1/${id}`, chocoBody);
+
+  }
 
   //DELETE
   deleteApi(id: number) : Observable<Chocolate>  {

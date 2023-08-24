@@ -52,6 +52,10 @@ export class ProductsComponent implements OnInit {
     this.router.navigate(["/new"]);
   }
 
+  goToEditPage(id: number) {
+    this.router.navigate([`/edit/${id}`]);
+  }
+
 
 
   //implements an ngOnDestory method that will unsubscribe from the method calling the api so that we won't be calling the api when the application isn't running (this wil prevent memory leaks)

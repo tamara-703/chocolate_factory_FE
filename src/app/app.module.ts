@@ -15,6 +15,7 @@ import { FetchApiService } from 'services/fetch-api.service';
 import { ImageSliderModule } from './imageSlider/imageSlider.module';
 import { PaginationModule } from 'pagination/pagination.module';
 import { CreateFormComponent } from './create-form/create-form.component';
+import { EditFormComponent } from './edit-form/edit-form.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { CreateFormComponent } from './create-form/create-form.component';
     CollectionsComponent,
     ManufacturerComponent,
     AboutComponent,
-    CreateFormComponent
+    CreateFormComponent,
+    EditFormComponent
   ],
   imports: [
     BrowserModule,

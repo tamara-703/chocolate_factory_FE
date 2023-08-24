@@ -27,7 +27,7 @@
     <h5>quantity in store: {{item.quantity}}</h5>
 
     <div style="display: flex; justify-content: flex-end;">
-      <span><button type="button" class="entry-buttons btn active">Edit entry</button></span> <!--on click, route to the edit component?-->
+      <span><button type="button" class="entry-buttons btn active" (click)="goToEditPage(item.id)">Edit entry</button></span> <!--on click, route to the edit component?-->
       <span><button type="button" class="entry-buttons btn active" (click)="deleteEntry(item.id)">Delete entry</button></span>
     </div>
   </div>
