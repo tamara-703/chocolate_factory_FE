@@ -1,1 +1,11 @@
 <p>manufacturer works!</p>
+
+
+
+<table>
+  <tr *ngFor="let item of data | slice: (page-1) * pageSize : page * pageSize">
+    <td>{{item.manufacturer}}</td>
+    <td>{{item.manufacturerAddress}}</td>
+    <td>{{item.capacity}}</td>
+  </tr>
+</table>
