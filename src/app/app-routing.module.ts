@@ -17,10 +17,10 @@ const routes: Routes = [
     path: 'products',
     component: ProductsComponent
   },
-  {
-    path: 'manufacturer',
-    component: ManufacturerComponent
-  },
+  // {
+  //   path: 'manufacturer',
+  //   component: ManufacturerComponent
+  // },
   {
     path: 'collections',
     component: CollectionsComponent

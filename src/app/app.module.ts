@@ -1,4 +1,4 @@
-import { NgModule, NgZone } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
@@ -11,11 +11,12 @@ import { ProductsComponent } from './products/products.component';
 import { CollectionsComponent } from './collections/collections.component';
 import { ManufacturerComponent } from './manufacturer/manufacturer.component';
 import { AboutComponent } from './about/about.component';
-import { FetchApiService } from 'services/fetch-api.service';
+import { FetchApiService } from 'src/app/products/services/fetch-api.service';
 import { ImageSliderModule } from './imageSlider/imageSlider.module';
 import { PaginationModule } from 'pagination/pagination.module';
 import { CreateFormComponent } from './create-form/create-form.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
+import { ManufacturerRoutingModule } from './manufacturer/routing/routing.module';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { EditFormComponent } from './edit-form/edit-form.component';
     HttpClientModule,
     PaginationModule,
     FormsModule,
-    InMemoryWebApiModule
+    InMemoryWebApiModule,
+    ManufacturerRoutingModule
   ],
   providers: [FetchApiService],
   bootstrap: [AppComponent]

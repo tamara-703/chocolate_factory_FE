@@ -11,19 +11,18 @@ import { Chocolate } from 'src/app/interfaces/chocolate';
 export class FetchApiService {
 
   //abstract this string to a higher config file. Move this to a environment config file
-  base_url: string = "http://localhost:8080" ?? "https://api.thecatapi.com/v1/images/search?limit=10";
+  // base_url: string = "http://localhost:8080" ?? "https://api.thecatapi.com/v1/images/search?limit=10";
 
-  url: string = environment.base_url; //imported from environment, use this for later requests
+  base_url: string = environment.base_url; //imported from environment, use this for later requests
 
   id: number = 0;
 
   constructor(private httpService: HttpClient) { }
 
   //GET
-  fetchApi() : Observable<Object>{
-    //GET
+  fetchApi() : Observable<Chocolate>{
 
-    return this.httpService.get(`${this.base_url}/chocolate/v1`);
+    return this.httpService.get<Chocolate>(`${this.base_url}/chocolate/v1`);
   }
 
   //GET BY ID

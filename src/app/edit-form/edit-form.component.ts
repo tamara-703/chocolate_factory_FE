@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FetchApiService } from 'services/fetch-api.service';
+import { FetchApiService } from 'src/app/products/services/fetch-api.service';
 import { Chocolate } from '../interfaces/chocolate';
 
 @Component({

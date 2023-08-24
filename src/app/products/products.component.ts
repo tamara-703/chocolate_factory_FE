@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {Router} from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
-import { FetchApiService } from 'services/fetch-api.service';
+import { FetchApiService } from 'src/app/products/services/fetch-api.service';
 
 @Component({
   selector: 'app-products',

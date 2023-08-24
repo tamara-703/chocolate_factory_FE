@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Chocolate } from '../interfaces/chocolate';
-import { FetchApiService } from 'services/fetch-api.service';
-import { Manufacturer } from '../interfaces/manufacturer';
+import { FetchApiService } from 'src/app/products/services/fetch-api.service';
+import { Manufacturer } from '../manufacturer/manufacturer';
 import { Router } from '@angular/router';
 
 @Component({
@@ -52,7 +52,7 @@ export class CreateFormComponent {
       })
     }
 
-    
+
 
 
   }
