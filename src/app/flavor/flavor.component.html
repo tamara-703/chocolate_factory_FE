@@ -1,0 +1,40 @@
+<p>flavor works!</p>
+
+<!-- <div class="flavor-container">
+<div class="flex-item" *ngFor="let item of data">
+  <button><h1>{{item.flavorName}}</h1></button>
+</div>
+</div> -->
+
+<div class="row">
+	<div class="col">
+		<div ngbDropdown class="d-inline-block">
+			<button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+				Select a flavor
+			</button>
+			<div ngbDropdownMenu aria-labelledby="dropdownBasic1" >
+				<button ngbDropdownItem *ngFor="let item of data" (click)="toggleCollapse(item.flavorName)">{{item.flavorName}}</button>
+			</div>
+		</div>
+	</div>
+  </div>
+
+  <div *ngIf="isCollapsed">
+    <ul>
+      <li *ngFor="let item of chocolatesList">
+        {{item.brand_name}}
+      </li>
+    </ul>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- | slice: (page-1) * pageSize : page * pageSize -->
