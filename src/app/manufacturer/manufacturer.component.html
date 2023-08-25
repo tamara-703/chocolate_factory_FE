@@ -2,10 +2,27 @@
 
 
 
-<table>
-  <tr *ngFor="let item of data | slice: (page-1) * pageSize : page * pageSize">
-    <td>{{item.manufacturer}}</td>
-    <td>{{item.manufacturerAddress}}</td>
-    <td>{{item.capacity}}</td>
-  </tr>
+<table class="table table-hover table-striped" style="margin: 200px auto; width: 100vw;">
+  <thead>
+    <tr>
+      <th scope="col">Manufacturer</th>
+      <th scope="col">Manufacturer Address</th>
+      <th scope="col">Capacity in Warehouse</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let item of data | slice: (page-1) * pageSize : page * pageSize">
+    <tr>
+      <th scope="row">{{item.manufacturer}}</th>
+      <td>{{item.manufacturerAddress}}</td>
+      <td>{{item.capacity}}</td>
+    </tr>
+  </tbody>
 </table>
+
+<ngb-pagination
+  [(page)]="page"
+  [pageSize]="pageSize"
+  [collectionSize]="collectionSize"
+>
+
+</ngb-pagination>
