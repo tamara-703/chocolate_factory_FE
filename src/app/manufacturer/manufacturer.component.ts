@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Manufacturer } from './manufacturer';
-import { Chocolate } from '../interfaces/chocolate';
 import { FetchApiService } from './fetch-api.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-manufacturer',
@@ -15,8 +15,10 @@ export class ManufacturerComponent implements OnInit {
   collectionSize: number = 0;
   page: number = 1;
   pageSize: number = 0;
+  manufacturer: string = "";
 
-  constructor(private service: FetchApiService) {}
+  constructor(private service: FetchApiService, private router: Router) {
+  }
 
   ngOnInit(): void {
     this.service.getAllManufacturers().subscribe(response => {
@@ -28,6 +30,13 @@ export class ManufacturerComponent implements OnInit {
       this.pageSize = Math.ceil(this.data.length / 10);
 
     })
+  }
+
+  //routing
+  goToEditPage(manufacturerName: string)
+  {
+    this.manufacturer = manufacturerName;
+    this.router.navigate([`manufacturer/edit/${this.manufacturer}`]);
   }
 
 

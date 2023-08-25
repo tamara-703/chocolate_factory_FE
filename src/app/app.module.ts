@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +18,7 @@ import { PaginationModule } from 'pagination/pagination.module';
 import { CreateFormComponent } from './create-form/create-form.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
 import { ManufacturerRoutingModule } from './manufacturer/routing/routing.module';
+import { EditManufacturerFormComponent } from './manufacturer/edit-manufacturer-form/edit-manufacturer-form.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ManufacturerRoutingModule } from './manufacturer/routing/routing.module
     ManufacturerComponent,
     AboutComponent,
     CreateFormComponent,
-    EditFormComponent
+    EditFormComponent,
+    EditManufacturerFormComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ import { ManufacturerRoutingModule } from './manufacturer/routing/routing.module
     FormsModule,
     InMemoryWebApiModule,
     ManufacturerRoutingModule,
-    NgbModule
+    NgbModule,
+    NgbPagination
   ],
   providers: [FetchApiService],
   bootstrap: [AppComponent]

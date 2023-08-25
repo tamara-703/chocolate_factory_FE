@@ -2,7 +2,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
-import { Chocolate } from 'src/app/interfaces/chocolate';
+import { Chocolate } from 'src/app/products/chocolate';
 
 @Injectable({
   providedIn: 'root'
@@ -20,9 +20,9 @@ export class FetchApiService {
   constructor(private httpService: HttpClient) { }
 
   //GET
-  fetchApi() : Observable<Chocolate>{
+  fetchApi() : Observable<Chocolate[]>{
 
-    return this.httpService.get<Chocolate>(`${this.base_url}/chocolate/v1`);
+    return this.httpService.get<Chocolate[]>(`${this.base_url}/chocolate/v1`);
   }
 
   //GET BY ID

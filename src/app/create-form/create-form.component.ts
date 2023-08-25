@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Chocolate } from '../interfaces/chocolate';
+import { Chocolate } from '../products/chocolate';
 import { FetchApiService } from 'src/app/products/services/fetch-api.service';
 import { Manufacturer } from '../manufacturer/manufacturer';
 import { Router } from '@angular/router';

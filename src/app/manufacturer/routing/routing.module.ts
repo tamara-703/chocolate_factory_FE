@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ManufacturerComponent } from '../manufacturer.component';
+import { EditManufacturerFormComponent } from '../edit-manufacturer-form/edit-manufacturer-form.component';
 
 const routes : Routes = [
   {
@@ -12,10 +13,10 @@ const routes : Routes = [
   //   path: 'manufacturer/new'
   //   //component
   // },
-  // {
-  //   path: 'manufacturer/edit/:id'
-  //   //component
-  // }
+  {
+    path: 'manufacturer/edit/:manufacturer',
+    component: EditManufacturerFormComponent
+  }
 ]
 
 @NgModule({
