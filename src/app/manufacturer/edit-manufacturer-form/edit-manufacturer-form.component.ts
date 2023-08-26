@@ -11,42 +11,44 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EditManufacturerFormComponent implements OnInit{
 
   data: Manufacturer = {
+    id: 0,
     manufacturer: "",
     manufacturerAddress: "",
     capacity: 0
   }
-  manufacturerName: string;
+  id: number;
   status: boolean = false;
 
   constructor(private service: FetchApiService, private path: ActivatedRoute, private router: Router) {
 
     let routePath = this.path.snapshot.paramMap.get('manufacturer');
-    this.manufacturerName = String(routePath);
+    this.id = Number(routePath);
 
   }
 
   ngOnInit(): void {
-    this.service.getManufacturerByName(this.manufacturerName).subscribe(response => {
+    this.service.getManufacturerByName(this.id).subscribe(response => {
+      console.log(response);
       this.data = response;
-
-      console.log("Manufacturer name: " + this.manufacturerName);
-
     })
   }
 
   onSaveChanges()
   {
-    this.service.editManufacturer(this.manufacturerName, this.data).subscribe(response => {
-      console.log("Data Changed success ");
+    if(this.data)
+    {
+      this.service.editManufacturer(this.id, this.data).subscribe(response => {
+        console.log("Data Changed success ");
+        console.log(response);
+        this.status = true;
 
-      this.status = true;
+        setTimeout(()=> {
 
-      setTimeout(()=> {
+          this.router.navigate(['/manufacturer']);
 
-        this.router.navigate(['/manufacturer']);
-
-      },2000)
-    })
+        },2000)
+      })
+    }
   }
 
 }

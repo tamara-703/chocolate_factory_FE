@@ -14,6 +14,7 @@ export class CreateFormComponent {
   //POST request will be here
 
   manufacturer: Manufacturer = {
+    id: 0,
     manufacturer: "",
     manufacturerAddress: "",
     capacity: 0
@@ -22,6 +23,7 @@ export class CreateFormComponent {
   chocolate: Chocolate = {
     brand_name: "",
     manufacturer: {
+      id: 0,
       capacity: 0,
       manufacturer: "",
       manufacturerAddress: ""

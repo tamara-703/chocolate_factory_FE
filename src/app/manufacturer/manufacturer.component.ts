@@ -16,6 +16,7 @@ export class ManufacturerComponent implements OnInit {
   page: number = 1;
   pageSize: number = 0;
   manufacturer: string = "";
+  id: number = 0;
 
   constructor(private service: FetchApiService, private router: Router) {
   }
@@ -36,7 +37,16 @@ export class ManufacturerComponent implements OnInit {
   goToEditPage(manufacturerName: string)
   {
     this.manufacturer = manufacturerName;
-    this.router.navigate([`manufacturer/edit/${this.manufacturer}`]);
+
+    for(let i = 0; i < this.data.length; i++)
+    {
+      if(this.data[i].manufacturer === this.manufacturer)
+      {
+        this.id = this.data[i].id;
+      }
+    }
+
+    this.router.navigate([`manufacturer/edit/${this.id}`]);
   }
 
 

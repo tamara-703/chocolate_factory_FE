@@ -3,13 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { NgbModule, NgbPagination } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbPagination, NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductsComponent } from './products/products.component';
-import { CollectionsComponent } from './collections/collections.component';
 import { ManufacturerComponent } from './manufacturer/manufacturer.component';
 import { AboutComponent } from './about/about.component';
 import { FetchApiService } from 'src/app/products/services/fetch-api.service';
@@ -19,6 +18,7 @@ import { CreateFormComponent } from './create-form/create-form.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
 import { ManufacturerRoutingModule } from './manufacturer/routing/routing.module';
 import { EditManufacturerFormComponent } from './manufacturer/edit-manufacturer-form/edit-manufacturer-form.component';
+import { FlavorComponent } from './flavor/flavor.component';
 
 
 @NgModule({
@@ -26,12 +26,12 @@ import { EditManufacturerFormComponent } from './manufacturer/edit-manufacturer-
     AppComponent,
     DashboardComponent,
     ProductsComponent,
-    CollectionsComponent,
     ManufacturerComponent,
     AboutComponent,
     CreateFormComponent,
     EditFormComponent,
-    EditManufacturerFormComponent
+    EditManufacturerFormComponent,
+    FlavorComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +45,7 @@ import { EditManufacturerFormComponent } from './manufacturer/edit-manufacturer-
     NgbModule,
     NgbPagination
   ],
-  providers: [FetchApiService],
+  providers: [FetchApiService, NgbCollapse],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

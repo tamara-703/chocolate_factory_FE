@@ -20,18 +20,15 @@ export class FetchApiService {
 
   }
 
-  getManufacturerByName(manufacturer: string) : Observable<Manufacturer>
+  getManufacturerByName(manufacturerID: number) : Observable<Manufacturer>
   {
-    return this.httpService.get<Manufacturer>(`${this.base_url}/manufacturer/${manufacturer}`);
+
+    return this.httpService.get<Manufacturer>(`${this.base_url}/manufacturer/${manufacturerID}`);
   }
 
-  editManufacturer(manufacturer: string, manufacturerBody: Manufacturer): Observable<Manufacturer>
+  editManufacturer(manufacturerID: number, manufacturerBody: Manufacturer): Observable<Manufacturer>
   {
 
-    return this.httpService.put<Manufacturer>(`${this.base_url}/manufacturer/${manufacturer}`, manufacturerBody);
-
-
-
-
+    return this.httpService.put<Manufacturer>(`${this.base_url}/manufacturer/${manufacturerID}`, manufacturerBody);
   }
 }

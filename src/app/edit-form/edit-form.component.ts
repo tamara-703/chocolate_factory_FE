@@ -14,6 +14,7 @@ export class EditFormComponent implements OnInit {
   data: Chocolate = {
     brand_name: "",
     manufacturer: {
+      id: 0,
       manufacturer: "",
       manufacturerAddress: "",
       capacity: 0
@@ -47,6 +48,14 @@ export class EditFormComponent implements OnInit {
         this.route.navigate(['/products']);
       }, 2000);
     })
+  }
+
+  //routing
+  goToEditManufacturerPage(id: number)
+  {
+
+    this.route.navigate([`/manufacturer/edit/${id}`]);
+
   }
 
 
