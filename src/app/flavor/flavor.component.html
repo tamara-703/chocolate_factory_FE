@@ -1,31 +1,58 @@
-<p>flavor works!</p>
-
-<!-- <div class="flavor-container">
-<div class="flex-item" *ngFor="let item of data">
-  <button><h1>{{item.flavorName}}</h1></button>
-</div>
-</div> -->
+<h1 style="margin-top:30px;">EXPLORE OUR FLAVORS!</h1>
 
 <div class="row">
 	<div class="col">
 		<div ngbDropdown class="d-inline-block">
-			<button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
-				Select a flavor
+			<button type="button" class="btn btn-outline-primary selection-btn" id="dropdownBasic1" ngbDropdownToggle>
+				SELECT A FLAVOR
 			</button>
 			<div ngbDropdownMenu aria-labelledby="dropdownBasic1" >
-				<button ngbDropdownItem *ngFor="let item of data" (click)="toggleCollapse(item.flavorName)">{{item.flavorName}}</button>
+				<button ngbDropdownItem *ngFor="let item of data" (click)="toggleCollapse(item.flavorName)" style="color: #4B371C; background-color: beige;">{{item.flavorName}}</button>
 			</div>
 		</div>
 	</div>
   </div>
 
   <div *ngIf="isCollapsed">
-    <ul>
-      <li *ngFor="let item of chocolatesList">
-        {{item.brand_name}}
-      </li>
-    </ul>
+    <table class="table table-striped" style="background-color: beige; width: 50%; margin: 0 auto; border-radius: 20px;">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">BRAND NAME</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of chocolatesList; index as i">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>
+                <img
+                    [src]="img"
+                    alt="choco-icon"
+                    class="me-2"
+                    style="width: 20px"
+                >
+                  {{item.brand_name}}
+              </td>
+              </tr>
+              </tbody>
+              </table>
   </div>
+
+
+
+
+    <!-- <table style="margin-right: 200px;">
+      <thead>
+      <th class="flavors-table">BRAND NAME</th>
+    </thead>
+      <tbody>
+        <tr *ngFor="let item of chocolatesList" >
+          <td>
+            {{item.brand_name}}
+          </td>
+        </tr>
+      </tbody>
+    </table> -->
 
 
 

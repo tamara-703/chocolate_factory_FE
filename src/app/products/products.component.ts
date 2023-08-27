@@ -1,8 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {Router} from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { FetchApiService } from 'src/app/products/services/fetch-api.service';
-import { Chocolate } from './chocolate';
 
 @Component({
   selector: 'app-products',
@@ -23,16 +22,15 @@ export class ProductsComponent implements OnInit {
   //fetch data on page load
   ngOnInit(): void {
 
-    this.service.fetchApi().subscribe(response => {
+    this.subscription = this.service.fetchApi().subscribe(response => {
       this.data = response;
 
       console.log(this.data);
 
       this.collectionSize = this.data.length;
       this.pageSize = Math.ceil(this.data.length / 7);
-    })
 
-    // this.subscription = this.data;
+    })
 
   }
 
@@ -66,11 +64,10 @@ export class ProductsComponent implements OnInit {
 
 
   //implements an ngOnDestory method that will unsubscribe from the method calling the api so that we won't be calling the api when the application isn't running (this wil prevent memory leaks)
-  // ngOnDestroy(): void {
+  ngOnDestroy(): void {
 
-  //   this.subscription.unsubscribe();
-  //   console.log("Application closed");
+    this.subscription.unsubscribe();
 
-  // }
+  }
 
 }

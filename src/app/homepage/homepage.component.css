@@ -1,9 +1,12 @@
+
 .slide {
   width: 100%;
   height: 100%;
-  border-radius: 10px;
+  border-radius: 50px;
   background-size: cover;
   background-position: center;
+  margin-top: -100px;
+  margin-left: -250px;
 }
 
 .rightArrow {
@@ -15,6 +18,8 @@
   color: #fff;
   z-index: 1;
   cursor: pointer;
+  margin-right: 280px;
+  margin-top: 50px;
 }
 
 .leftArrow {
@@ -26,6 +31,8 @@
   color: #fff;
   z-index: 1;
   cursor: pointer;
+  margin-left: -240px;
+  margin-top: 50px;
 }
 
 .slider {
@@ -36,6 +43,7 @@
 .dotsContainer {
   display: flex;
   justify-content: center;
+  margin-right: 550px;
 }
 
 .dot {

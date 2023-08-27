@@ -1,4 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Gluten:wght@600&display=swap');
 
 
+  body {
+  background-image: url("https://static.vecteezy.com/system/resources/thumbnails/026/937/813/small/ai-generative-beige-cream-silk-satin-soft-folds-light-brown-color-elegant-background-for-design-silky-smooth-fabric-surface-banner-wide-long-panoramic-website-header-photo.jpg");
+  background-size: cover;
+  font-family: 'Gluten', cursive;
+  font-size: 22px;
+}

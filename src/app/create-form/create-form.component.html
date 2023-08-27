@@ -1,17 +1,4 @@
-<h1>Create New Chocolate Entry Page</h1>
-
-<!-- <h1>Please enter the manufacturer information</h1>
-<form (click)="submitManufacturerForm()">
-  <div class="form-container">
-    <label for="manufacturer">Manufacturer name</label>
-    <input class="form-control" type="text" placeholder="enter manufacturer name" aria-label="default input example" name="manufacturer_name" [(ngModel)]="manufacturer.manufacturer">
-    <label for="manufacturer-address">Manufacturer Address</label>
-    <input class="form-control form-control-sm" type="text" placeholder="enter manufacturer address" aria-label=".form-control-sm example" name="manufacturer-address" [(ngModel)]="manufacturer.manufacturerAddress">
-    <label for="capacity">Capacity In Warehouse</label>
-    <input class="form-control form-control-sm" type="number" placeholder="enter capacity in warehouse" aria-label=".form-control-sm example" min="10" max="50000" name="capacity" [(ngModel)]="manufacturer.capacity">
-    <input type="submit" class="btn active" style="width:200px; background-color: beige">
-  </div>
-  </form> -->
+<h1 style="margin-top:30px;">CREATE NEW CHOCOLATE ENTRY PAGE</h1>
 
 
   <form >
@@ -31,6 +18,6 @@
     </form>
 
     <div *ngIf="status">
-      <h1>Chocolate Entry Created</h1>
+      <h1>CHOCOLATE ENTRY CREATED!</h1>
       <button class="btn active" style="background-color: beige;" (click)="goToHomepage()">Go back to products</button>
     </div>

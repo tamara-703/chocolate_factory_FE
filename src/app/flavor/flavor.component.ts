@@ -14,7 +14,8 @@ export class FlavorComponent implements OnInit {
 
   data: Flavor[] = [];
   isCollapsed: boolean = false;
-  chocolatesList: Chocolate[] = []
+  chocolatesList: Chocolate[] = [];
+  img: string = "../../assets/images/choco-icon.png";
 
   constructor(private service: FetchApiService) {}
 

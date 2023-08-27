@@ -20,6 +20,7 @@ body {
   height: 600px;
   padding: 40px;
   border: solid 1px;
+  border-radius: 20px;
   background-color: white;
 }
 

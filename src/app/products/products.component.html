@@ -1,9 +1,9 @@
-<h1>products works!</h1>
+<h1 style="margin-top:30px;">EXPLORE OUR PRODUCTS!</h1>
 
 
 <div style="display: flex; justify-content: center;">
-  <button type="button" class="btn active" data-bs-toggle="button" aria-pressed="true" style="background-color: beige; margin-top: 50px;" (click)="goToHomepage()">Back to homepage</button>
-  <button type="button" class="btn active" data-bs-toggle="button" aria-pressed="true" style="background-color: beige; margin-top: 50px;" (click)="goToCreateForm()">Add new product</button>
+  <button type="button" class="btn active" data-bs-toggle="button" aria-pressed="true" style="background-color: #bb9ec4;; margin-top: 50px; color:white" (click)="goToHomepage()">Back to homepage</button>
+  <button type="button" class="btn active" data-bs-toggle="button" aria-pressed="true" style="background-color: #bb9ec4;; margin-top: 50px; color: white;" (click)="goToCreateForm()">Add new product</button>
 </div>
 
 <div class="chocolate-container">
@@ -15,8 +15,8 @@
     <h5>quantity in store: {{item.quantity}}</h5>
 
     <div style="display: flex; justify-content: flex-end;">
-      <span><button type="button" class="entry-buttons btn active" (click)="goToEditPage(item.id)">Edit entry</button></span>
-      <span><button type="button" class="entry-buttons btn active" (click)="deleteEntry(item.id)">Delete entry</button></span>
+      <span><button type="button" class="entry-buttons btn active" (click)="goToEditPage(item.id)" style="color: #4B371C">Edit entry</button></span>
+      <span><button type="button" class="entry-buttons btn active" (click)="deleteEntry(item.id)" style="color: #4B371C">Delete entry</button></span>
     </div>
   </div>
 </div>
@@ -27,7 +27,3 @@
   [collectionSize]="collectionSize">
 
 </ngb-pagination>
-
-
-
-<!-- <app-pagination [currentPage] = "currentPage" [limit] = "20" [total] = "40" (changePage)="changePage($event)" [data] = "data"> </app-pagination> -->
