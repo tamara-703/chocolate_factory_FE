@@ -1,21 +1,24 @@
 <h1 style="margin-top:30px;">CREATE NEW CHOCOLATE ENTRY PAGE</h1>
 
 
-  <form >
+  <form #userForm="ngForm" (ngSubmit)="submitForm()">
     <div class="form-container">
         <label for="brand_name">Brand name</label>
-      <input class="form-control form-control-lg" type="text" placeholder="enter brand name" aria-label=".form-control-lg example"  name="brand_name" [(ngModel)]="chocolate.brand_name" required>
+      <input class="form-control form-control-lg" type="text" #chocolate.brand_name="ngModel"  placeholder="enter brand name" aria-label=".form-control-lg example"  name="brand_name" [(ngModel)]="chocolate.brand_name" minlength="2" maxlength="20" required>
       <label for="manufacturer">Quantity</label>
       <input class="form-control" type="number" placeholder="enter quantity" aria-label="default input example" min="10" max="50000" name="quantity" [(ngModel)]="chocolate.quantity" required>
+      <div *ngIf="chocolate.quantity > 50000" [class.alert-color]="chocolate.quantity > 50000">Quantity should be less than 50,000 units</div>
       <label for="manufacturer">Manufacturer name</label>
       <input class="form-control" type="text" placeholder="enter manufacturer name" aria-label="default input example" name="manufacturer_name" [(ngModel)]="chocolate.manufacturer.manufacturer" required>
       <label for="manufacturer-address">Manufacturer Address</label>
       <input class="form-control form-control-sm" type="text" placeholder="enter manufacturer address" aria-label=".form-control-sm example" name="manufacturer-address" [(ngModel)]="chocolate.manufacturer.manufacturerAddress" required>
       <label for="capacity">Capacity In Warehouse</label>
       <input class="form-control form-control-sm" type="number" placeholder="enter capacity in warehouse" aria-label=".form-control-sm example" min="10" max="50000" name="capacity" [(ngModel)]="chocolate.manufacturer.capacity" required>
-      <input type="submit" class="btn active" style="width:200px; background-color: beige" (click)="submitForm()">
+      <div *ngIf="chocolate.manufacturer.capacity > 50000" [class.alert-color]="chocolate.manufacturer.capacity > 50000">Capacity should not exceed 50,000 units</div>
+      <button type="submit" [disabled]="!userForm.form.valid">Submit</button>
     </div>
     </form>
+
 
     <div *ngIf="status">
       <h1>CHOCOLATE ENTRY CREATED!</h1>

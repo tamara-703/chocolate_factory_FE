@@ -11,3 +11,7 @@
 .hide-element {
   display: none;
 }
+
+.alert-color {
+  color: red;
+}

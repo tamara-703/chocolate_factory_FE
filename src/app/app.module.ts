@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { NgbModule, NgbPagination, NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
 
@@ -40,6 +40,7 @@ import { FlavorComponent } from './flavor/flavor.component';
     HttpClientModule,
     PaginationModule,
     FormsModule,
+    ReactiveFormsModule,
     InMemoryWebApiModule,
     ManufacturerRoutingModule,
     NgbModule,
