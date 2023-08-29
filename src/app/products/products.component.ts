@@ -16,6 +16,8 @@ export class ProductsComponent implements OnInit {
   pageSize: number = 0;
   subscription!: Subscription;
   deletedId: number = 0;
+  selected: boolean = false;
+  selectedId: number = 0;
 
   constructor(private service: FetchApiService, private router: Router) {}
 
@@ -34,8 +36,22 @@ export class ProductsComponent implements OnInit {
 
   }
 
+  deleteConfirmation(id: number) {
+
+    this.selected = true;
+    this.selectedId = id;
+
+  }
+
+  deleteNotConfirmed()
+  {
+    this.selected = false;
+    console.log("selected is " + this.selected)
+  }
+
   deleteEntry(id: number) {
     this.deletedId = id;
+    console.log("ID to be deleted: " + this.deletedId)
     this.service.deleteApi(this.deletedId).subscribe(response => {
       console.log(response);
 

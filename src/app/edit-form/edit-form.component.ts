@@ -11,6 +11,7 @@ import { Chocolate } from '../products/chocolate';
 export class EditFormComponent implements OnInit {
 
   id: number;
+  currentQuantity: number = 0;
   data: Chocolate = {
     brand_name: "",
     manufacturer: {
@@ -34,6 +35,8 @@ export class EditFormComponent implements OnInit {
     this.service.fetchApiById(this.id).subscribe(response => {
 
       this.data = response;
+      this.currentQuantity = this.data.quantity;
+      console.log(this.currentQuantity)
     })
 
   }

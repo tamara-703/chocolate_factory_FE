@@ -1,6 +1,19 @@
 <h1 style="margin-top:30px;">EXPLORE OUR PRODUCTS!</h1>
 
 
+<div *ngIf="selected" class="confirmation-container">
+  <ul>Entry with ID {{selectedId}} will be permanently deleted from the database. Are you sure you want to proceed?
+    <li>
+      <button (click)="deleteEntry(selectedId)">Yes</button>
+    </li>
+    <li>
+      <button (click)="deleteNotConfirmed()" [class.hide-confirmation]="!selected">No</button>
+    </li>
+
+  </ul>
+</div>
+
+
 <div style="display: flex; justify-content: center;">
   <button type="button" class="btn active" data-bs-toggle="button" aria-pressed="true" style="background-color: #bb9ec4;; margin-top: 50px; color:white" (click)="goToHomepage()">Back to homepage</button>
   <button type="button" class="btn active" data-bs-toggle="button" aria-pressed="true" style="background-color: #bb9ec4;; margin-top: 50px; color: white;" (click)="goToCreateForm()">Add new product</button>
@@ -16,10 +29,18 @@
 
     <div style="display: flex; justify-content: flex-end;">
       <span><button type="button" class="entry-buttons btn active" (click)="goToEditPage(item.id)" style="color: #4B371C">Edit entry</button></span>
-      <span><button type="button" class="entry-buttons btn active" (click)="deleteEntry(item.id)" style="color: #4B371C">Delete entry</button></span>
+      <span><button type="button" class="entry-buttons btn active" (click)="deleteConfirmation(item.id)" style="color: #4B371C">Delete entry</button>
+      </span>
     </div>
   </div>
+
+
+
 </div>
+
+
+
+
 
 <ngb-pagination
   [(page)]="page"
