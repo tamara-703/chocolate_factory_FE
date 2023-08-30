@@ -1,5 +1,5 @@
 # Chocolate Factory Warehouse
-<img src="../project1-chocolatefactory/src/assets/images/logo.jpg" width="200px">
+![choco-logo](./src/assets/images/logo.jpg)
 
 ### This project emulates a simple warehouse inventory management system for adding/updating/deleting inventory.
 ## To view the backend github for this project, [click here](https://github.com/tamara-703/chocolate_factory_BE)
@@ -37,5 +37,5 @@ Spring boot
   * Erica Hicks
   * Brandon Vanek
   * Sean Carter
-  
+
 * Thank you for **monsterlessonsacademy** for his amazing toturials on angular, including image sliders and paginations. You can find out more about his repositories [here](https://github.com/monsterlessonsacademy)
