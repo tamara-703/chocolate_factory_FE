@@ -35,8 +35,8 @@ export class EditManufacturerFormComponent implements OnInit{
 
   onSaveChanges()
   {
-    if(this.data)
-    {
+      console.log(this.data);
+      console.log("ID " + this.id);
       this.service.editManufacturer(this.id, this.data).subscribe(response => {
         console.log("Data Changed success ");
         console.log(response);
@@ -48,7 +48,6 @@ export class EditManufacturerFormComponent implements OnInit{
 
         },2000)
       })
-    }
   }
 
 }

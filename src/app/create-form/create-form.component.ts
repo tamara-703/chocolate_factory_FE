@@ -11,8 +11,6 @@ import { FormControl, FormGroup, NgControl } from '@angular/forms';
   styleUrls: ['./create-form.component.css']
 })
 export class CreateFormComponent {
-
-  //testing reactive forms
   userForm = new FormGroup(
     {
       brand_name: new FormControl(''),

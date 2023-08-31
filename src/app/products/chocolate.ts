@@ -6,10 +6,3 @@ export interface Chocolate {
   manufacturer: Manufacturer,
   quantity: number
  }
-
-
-//  manufacturer: {
-//   capacity: number,
-//   manufacturer: string,
-//   manufacturerAddress: string
-// },

@@ -16,7 +16,7 @@
 
 <div style="display: flex; justify-content: center;">
   <button type="button" class="btn active" data-bs-toggle="button" aria-pressed="true" style="background-color: #bb9ec4;; margin-top: 50px; color:white" (click)="goToHomepage()">Back to homepage</button>
-  <button type="button" class="btn active" data-bs-toggle="button" aria-pressed="true" style="background-color: #bb9ec4;; margin-top: 50px; color: white;" (click)="goToCreateForm()">Add new product</button>
+  <button type="button" class="btn active" data-bs-toggle="button" aria-pressed="true" style="background-color: #bb9ec4;; margin-top: 50px; color: white;" (click)="goToCreateForm()" [disabled]="isDeletedActive">Add new product</button>
 </div>
 
 <div class="chocolate-container">
@@ -28,8 +28,8 @@
     <h5>quantity in store: {{item.quantity}}</h5>
 
     <div style="display: flex; justify-content: flex-end;">
-      <span><button type="button" class="entry-buttons btn active" (click)="goToEditPage(item.id)" style="color: #4B371C">Edit entry</button></span>
-      <span><button type="button" class="entry-buttons btn active" (click)="deleteConfirmation(item.id)" style="color: #4B371C">Delete entry</button>
+      <span><button type="button" class="entry-buttons btn active" (click)="goToEditPage(item.id)" style="color: #4B371C" [disabled]="isDeletedActive">Edit entry</button></span>
+      <span><button type="button" class="entry-buttons btn active" (click)="deleteConfirmation(item.id)" style="color: #4B371C" [disabled]="isDeletedActive">Delete entry</button>
       </span>
     </div>
   </div>
@@ -39,12 +39,11 @@
 </div>
 
 
-
-
-
 <ngb-pagination
   [(page)]="page"
   [pageSize]="pageSize"
-  [collectionSize]="collectionSize">
+  [collectionSize]="collectionSize"
+  [disabled]="isDeletedActive"
+  class="pagination">
 
 </ngb-pagination>

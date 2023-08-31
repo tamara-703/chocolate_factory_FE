@@ -7,13 +7,10 @@ import { Chocolate } from 'src/app/products/chocolate';
 @Injectable({
   providedIn: 'root'
 })
-//NOTE: create two other service that would individually fetch the manufacturer and flavor api instead of having them here
+
 export class FetchApiService {
 
-  //abstract this string to a higher config file. Move this to a environment config file
-  // base_url: string = "http://localhost:8080" ?? "https://api.thecatapi.com/v1/images/search?limit=10";
-
-  base_url: string = environment.base_url; //imported from environment, use this for later requests
+  base_url: string = environment.base_url; 
 
   id: number = 0;
 
@@ -34,11 +31,6 @@ export class FetchApiService {
 
   //POST
   postApi(chocoBody: Chocolate) : Observable<Chocolate> {
-
-    //not sure if i want any headers. Check the headers next time a response comes in
-    // const headers = new HttpHeaders({
-    //   'Content-Type': 'application/json'
-    // })
 
     console.log("Request body received");
 

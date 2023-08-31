@@ -28,6 +28,9 @@ export class FetchApiService {
 
   editManufacturer(manufacturerID: number, manufacturerBody: Manufacturer): Observable<Manufacturer>
   {
+    console.log("Data received");
+    console.log(manufacturerID);
+    console.log(manufacturerBody);
 
     return this.httpService.put<Manufacturer>(`${this.base_url}/manufacturer/${manufacturerID}`, manufacturerBody);
   }

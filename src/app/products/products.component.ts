@@ -18,6 +18,7 @@ export class ProductsComponent implements OnInit {
   deletedId: number = 0;
   selected: boolean = false;
   selectedId: number = 0;
+  isDeletedActive = false;
 
   constructor(private service: FetchApiService, private router: Router) {}
 
@@ -39,6 +40,7 @@ export class ProductsComponent implements OnInit {
   deleteConfirmation(id: number) {
 
     this.selected = true;
+    this.isDeletedActive = true;
     this.selectedId = id;
 
   }
@@ -46,6 +48,7 @@ export class ProductsComponent implements OnInit {
   deleteNotConfirmed()
   {
     this.selected = false;
+    this.isDeletedActive = false;
     console.log("selected is " + this.selected)
   }
 
@@ -77,9 +80,6 @@ export class ProductsComponent implements OnInit {
     this.router.navigate([`/edit/${id}`]);
   }
 
-
-
-  //implements an ngOnDestory method that will unsubscribe from the method calling the api so that we won't be calling the api when the application isn't running (this wil prevent memory leaks)
   ngOnDestroy(): void {
 
     this.subscription.unsubscribe();

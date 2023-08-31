@@ -1,4 +1,5 @@
 # Chocolate Factory Warehouse
+
 ![choco-logo](./src/assets/images/logo.jpg)
 
 ### This project emulates a simple warehouse inventory management system for adding/updating/deleting inventory.
@@ -13,6 +14,7 @@ Bootstrap
 Popper JS
 Java
 Spring boot
+MySQL
 
 ```
 ## Local installation

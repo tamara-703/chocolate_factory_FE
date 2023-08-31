@@ -9,10 +9,6 @@ const routes : Routes = [
     path: 'manufacturer',
     component: ManufacturerComponent
   },
-  // {
-  //   path: 'manufacturer/new'
-  //   //component
-  // },
   {
     path: 'manufacturer/edit/:manufacturer',
     component: EditManufacturerFormComponent
