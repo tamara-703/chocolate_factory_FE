@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Chocolate } from '../products/chocolate';
 import { FetchApiService } from 'src/app/products/services/fetch-api.service';
 import { Manufacturer } from '../manufacturer/manufacturer';
@@ -44,9 +44,31 @@ export class CreateFormComponent {
   }
 
   status: boolean = false;
+  incomingData: Chocolate[] = [];
+  foundMatch: string = "some value";
 
 
-  constructor(private service: FetchApiService, private router: Router) {}
+  constructor(private service: FetchApiService, private router: Router) {
+    service.fetchApi().subscribe(response => {
+
+      this.incomingData = response;
+      console.log(this.incomingData);
+
+    })
+  }
+
+  checkTypeMismatch(event: any)
+  {
+    console.log(event.currentTarget.value);
+    for(let i = 0; i < this.incomingData.length; i++)
+    {
+      if(this.incomingData[i].brand_name === event.currentTarget.value || this.incomingData[i].manufacturer.manufacturer === event.currentTarget.value || this.incomingData[i].manufacturer.manufacturerAddress === event.currentTarget.value)
+      {
+        this.foundMatch = event.currentTarget.value;
+        console.log("Found a match!");
+      }
+    }
+  }
 
   submitForm() : void {
     event?.preventDefault();

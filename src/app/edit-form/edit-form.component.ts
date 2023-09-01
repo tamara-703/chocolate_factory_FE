@@ -36,7 +36,8 @@ export class EditFormComponent implements OnInit {
 
       this.data = response;
       this.currentQuantity = this.data.quantity;
-      console.log(this.currentQuantity)
+      console.log(this.currentQuantity);
+      console.log(this.data);
     })
 
   }
